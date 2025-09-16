@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -18,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Bot token or chat ID not set" });
   }
 
-  const text = `📩 New message from portfolio:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+  const text = `📩 New message:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
   try {
     await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -29,7 +27,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ success: true });
   } catch (err) {
-    console.error(err);
+    console.error("Telegram API Error:", err);
     res.status(500).json({ error: "Failed to send message" });
   }
 }
