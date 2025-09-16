@@ -23,7 +23,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     message: e.target.message.value
   };
 
-  const res = await fetch('/api/sendMessage', {
+  const res = await fetch('/api/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData)
@@ -36,3 +36,4 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
+
