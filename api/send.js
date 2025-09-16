@@ -8,8 +8,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing fields" });
     }
 
-    const botToken = "YOUR_BOT_TOKEN";
-    const chatId = "YOUR_TELEGRAM_ID"; // your personal Telegram ID
+    const botToken = "8369883883:AAEwStouglzBaRWDWXpEiasDMDntnxOfvzk";
+    const chatId = "5963539655"; // your personal Telegram ID
     const text = `New message from portfolio:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
     try {
@@ -27,3 +27,4 @@ export default async function handler(req, res) {
     res.status(405).json({ error: "Method not allowed" });
   }
 }
+
